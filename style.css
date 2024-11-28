@@ -1,0 +1,162 @@
+/* Resetando margens e padding padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral da página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f9; /* Cor suave de fundo (Cinza claro) */
+    color: #333;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #3c6e71;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Estilo para os formulários */
+form {
+    background-color: #ffffff; /* Mantivemos o fundo branco para os formulários */
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+form input, form select, form button {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    background-color: #f9f9f9;
+}
+
+/* Foco nos campos de formulário */
+form input:focus, form select:focus, form button:focus {
+    border-color: #3c6e71;
+    outline: none;
+}
+
+/* Estilo para o botão de envio */
+form button {
+    background-color: #3c6e71;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form button:hover {
+    background-color: #284b4d;
+    transform: scale(1.05);
+}
+
+/* Estilização para os campos de categoria, valor e data */
+form select, form input[type="number"], form input[type="date"], form select[name="mes"] {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    color: #333;
+}
+
+/* Estilo para os labels */
+label {
+    font-weight: bold;
+    color: #3c6e71; /* Cor para o texto dos rótulos */
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    display: block; /* Para que o texto fique em linha reta acima do campo */
+}
+
+/* Foco nos campos de formulário */
+form select:focus, form input[type="number"]:focus, form input[type="date"]:focus {
+    border-color: #3c6e71;
+    outline: none;
+}
+
+/* Estilização para o campo de mês, destacando-o */
+form select[name="mes"] {
+    background-color: #f9f9f9; 
+    font-size: 1rem;
+    padding: 10px;
+    color: #333;
+}
+
+/* Listagem de despesas */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+/* Categoria com negrito e cor diferenciada */
+.categoria {
+    font-weight: bold;
+    color: #3c6e71; /* Cor suave para destacar a categoria */
+    font-size: 1.3rem;
+}
+
+/* Valor com cor e formatação */
+.valor {
+    color: #e74c3c; /* Cor vermelha para destacar o valor */
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+/* Data com formato estilizado */
+.data {
+    color: #6c757d; /* Cor cinza para a data */
+    font-size: 1rem;
+    font-style: italic;
+}
+
+h2 {
+    color: #3c6e71;
+    font-size: 1.8rem;
+    margin-top: 30px;
+}
+
+/* Estilização da lista de despesas ao passar o mouse (hover) */
+ul li:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+    transform: translateY(-5px);
+}
+
+/* Container centralizado */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Total das despesas do mês em vermelho */
+.total-red {
+    color: #e74c3c; /* Cor vermelha */
+    font-weight: bold;
+    font-size: 1.4rem;
+}

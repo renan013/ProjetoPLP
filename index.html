@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Despesas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Controle de Despesas</h1>
+
+        <!-- Formulário para adicionar despesas -->
+        <h2>Adicionar Despesa</h2>
+        <form method="POST" action="{{ url_for('add_despesa') }}">
+            <label for="categoria">Categoria</label>
+            <select name="categoria" id="categoria" required>
+                <option value="">Selecione uma categoria</option>
+                {% for categoria in categorias %}
+                    <option value="{{ categoria.nome }}">{{ categoria.nome }}</option>
+                {% endfor %}
+            </select>
+            <label for="valor">Valor (R$)</label>
+            <input type="number" id="valor" name="valor" required step="0.01">
+            <label for="data">Data</label>
+            <input type="date" id="data" name="data" required>
+            <button type="submit">Adicionar Despesa</button>
+        </form>
+
+        <!-- Exibição das despesas cadastradas -->
+        <h2>Despesas Cadastradas</h2>
+        <ul>
+            {% for despesa in despesas %}
+                <li>
+                    <span class="categoria">{{ despesa.categoria }}</span> 
+                    <span class="valor">R${{ despesa.valor }}</span> 
+                    <span class="data">{{ despesa.data }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Formulário para calcular despesas do mês -->
+        <h2>Calcular Despesas de um Mês</h2>
+        <form method="POST" action="{{ url_for('calcular_despesas') }}">
+            <label for="mes">Escolha o Mês</label>
+            <select name="mes" id="mes" required>
+                <option value="" disabled selected>Selecione um mês</option>
+                <option value="01">Janeiro</option>
+                <option value="02">Fevereiro</option>
+                <option value="03">Março</option>
+                <option value="04">Abril</option>
+                <option value="05">Maio</option>
+                <option value="06">Junho</option>
+                <option value="07">Julho</option>
+                <option value="08">Agosto</option>
+                <option value="09">Setembro</option>
+                <option value="10">Outubro</option>
+                <option value="11">Novembro</option>
+                <option value="12">Dezembro</option>
+            </select>
+            <button type="submit">Calcular Despesas</button>
+        </form>
+
+        <!-- Exibição do total das despesas de um mês -->
+        {% if total_despesas is not none %}
+            <h2>Total de Despesas em {{ mes_nome }}: <span class="total-red">R$ {{ total_despesas }}</span></h2>
+        {% endif %}
+    </div>
+</body>
+</html>
